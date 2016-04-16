@@ -6,7 +6,7 @@
 		<artifactId>esatict-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>esatict-mapper</artifactId>
+	<artifactId>eastict-mapper</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>com.eastict</groupId>
@@ -16,6 +16,11 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
+		</dependency>
+		<!-- MySql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 	</dependencies>
 </project>
