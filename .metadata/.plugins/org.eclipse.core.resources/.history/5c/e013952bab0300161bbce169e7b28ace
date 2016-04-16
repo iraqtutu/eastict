@@ -1,9 +1,0 @@
-﻿#Mybatis Generator configuration
-project = ./src/main/java
-classPath= E:/mysql-connector-java-5.1.30.jar
-jdbc_driver = com.mysql.jdbc.Driver
-jdbc_url=jdbc:mysql://localhost:3306/usermanager
-jdbc_user=root
-jdbc_password=
-genpackage=eastict.sample
-descript=别忘记到generatorConfig.xml中配置表信息
