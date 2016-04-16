@@ -1,0 +1,35 @@
+package eastict.sample.pojo;
+
+import java.util.Date;
+
+public class Model {
+    private String procName;
+
+    private Date createTime;
+
+    private Date lastUpdateTime;
+
+    public String getProcName() {
+        return procName;
+    }
+
+    public void setProcName(String procName) {
+        this.procName = procName == null ? null : procName.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+}

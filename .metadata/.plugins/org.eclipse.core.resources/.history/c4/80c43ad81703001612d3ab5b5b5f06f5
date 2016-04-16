@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sample.mapper.StepMapper">
+  <resultMap id="BaseResultMap" type="eastict.sample.pojo.Step">
+    <id column="PROC_NAME_" jdbcType="VARCHAR" property="procName" />
+    <id column="STEP_NAME_" jdbcType="VARCHAR" property="stepName" />
+    <result column="NEXT_STEP_EXP_" jdbcType="VARCHAR" property="nextStepExp" />
+    <result column="IS_START_" jdbcType="CHAR" property="isStart" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PROC_NAME_, STEP_NAME_, NEXT_STEP_EXP_, IS_START_
+  </sql>
+  <select id="selectByExample" parameterType="eastict.sample.pojo.StepExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from re_step
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="eastict.sample.pojo.StepKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from re_step
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="eastict.sample.pojo.StepKey">
+    delete from re_step
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="eastict.sample.pojo.Step">
+    insert into re_step (PROC_NAME_, STEP_NAME_, NEXT_STEP_EXP_, 
+      IS_START_)
+    values (#{procName,jdbcType=VARCHAR}, #{stepName,jdbcType=VARCHAR}, #{nextStepExp,jdbcType=VARCHAR}, 
+      #{isStart,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="eastict.sample.pojo.Step">
+    insert into re_step
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="procName != null">
+        PROC_NAME_,
+      </if>
+      <if test="stepName != null">
+        STEP_NAME_,
+      </if>
+      <if test="nextStepExp != null">
+        NEXT_STEP_EXP_,
+      </if>
+      <if test="isStart != null">
+        IS_START_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="procName != null">
+        #{procName,jdbcType=VARCHAR},
+      </if>
+      <if test="stepName != null">
+        #{stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="nextStepExp != null">
+        #{nextStepExp,jdbcType=VARCHAR},
+      </if>
+      <if test="isStart != null">
+        #{isStart,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="eastict.sample.pojo.Step">
+    update re_step
+    <set>
+      <if test="nextStepExp != null">
+        NEXT_STEP_EXP_ = #{nextStepExp,jdbcType=VARCHAR},
+      </if>
+      <if test="isStart != null">
+        IS_START_ = #{isStart,jdbcType=CHAR},
+      </if>
+    </set>
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="eastict.sample.pojo.Step">
+    update re_step
+    set NEXT_STEP_EXP_ = #{nextStepExp,jdbcType=VARCHAR},
+      IS_START_ = #{isStart,jdbcType=CHAR}
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="eastict.sample.pojo.Step">
+    <id column="PROC_NAME_" jdbcType="VARCHAR" property="procName" />
+    <id column="STEP_NAME_" jdbcType="VARCHAR" property="stepName" />
+    <result column="NEXT_STEP_EXP_" jdbcType="VARCHAR" property="nextStepExp" />
+    <result column="IS_START_" jdbcType="CHAR" property="isStart" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    PROC_NAME_, STEP_NAME_, NEXT_STEP_EXP_, IS_START_
+  </sql>
+  <select id="selectByExample" parameterType="eastict.sample.pojo.StepExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from re_step
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="eastict.sample.pojo.StepKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from re_step
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="eastict.sample.pojo.StepKey">
+    delete from re_step
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="eastict.sample.pojo.Step">
+    insert into re_step (PROC_NAME_, STEP_NAME_, NEXT_STEP_EXP_, 
+      IS_START_)
+    values (#{procName,jdbcType=VARCHAR}, #{stepName,jdbcType=VARCHAR}, #{nextStepExp,jdbcType=VARCHAR}, 
+      #{isStart,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="eastict.sample.pojo.Step">
+    insert into re_step
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="procName != null">
+        PROC_NAME_,
+      </if>
+      <if test="stepName != null">
+        STEP_NAME_,
+      </if>
+      <if test="nextStepExp != null">
+        NEXT_STEP_EXP_,
+      </if>
+      <if test="isStart != null">
+        IS_START_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="procName != null">
+        #{procName,jdbcType=VARCHAR},
+      </if>
+      <if test="stepName != null">
+        #{stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="nextStepExp != null">
+        #{nextStepExp,jdbcType=VARCHAR},
+      </if>
+      <if test="isStart != null">
+        #{isStart,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="eastict.sample.pojo.Step">
+    update re_step
+    <set>
+      <if test="nextStepExp != null">
+        NEXT_STEP_EXP_ = #{nextStepExp,jdbcType=VARCHAR},
+      </if>
+      <if test="isStart != null">
+        IS_START_ = #{isStart,jdbcType=CHAR},
+      </if>
+    </set>
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="eastict.sample.pojo.Step">
+    update re_step
+    set NEXT_STEP_EXP_ = #{nextStepExp,jdbcType=VARCHAR},
+      IS_START_ = #{isStart,jdbcType=CHAR}
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </update>
+</mapper>

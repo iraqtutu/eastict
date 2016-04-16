@@ -1,0 +1,23 @@
+package eastict.sample.pojo;
+
+public class Step extends StepKey {
+    private String nextStepExp;
+
+    private String isStart;
+
+    public String getNextStepExp() {
+        return nextStepExp;
+    }
+
+    public void setNextStepExp(String nextStepExp) {
+        this.nextStepExp = nextStepExp == null ? null : nextStepExp.trim();
+    }
+
+    public String getIsStart() {
+        return isStart;
+    }
+
+    public void setIsStart(String isStart) {
+        this.isStart = isStart == null ? null : isStart.trim();
+    }
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="src.main.java.cn.gov.customs.lightFlow.engine.meta.StepMapper" >
+  <resultMap id="BaseResultMap" type="src.main.java.cn.gov.customs.lightFlow.engine.meta.Step" >
+    <id column="PROC_NAME_" property="procName" jdbcType="VARCHAR" />
+    <id column="STEP_NAME_" property="stepName" jdbcType="VARCHAR" />
+    <result column="NEXT_STEP_EXP_" property="nextStepExp" jdbcType="VARCHAR" />
+    <result column="IS_START_" property="isStart" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PROC_NAME_, STEP_NAME_, NEXT_STEP_EXP_, IS_START_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.StepKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from re_step
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.StepKey" >
+    delete from re_step
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Step" >
+    insert into re_step (PROC_NAME_, STEP_NAME_, NEXT_STEP_EXP_, 
+      IS_START_)
+    values (#{procName,jdbcType=VARCHAR}, #{stepName,jdbcType=VARCHAR}, #{nextStepExp,jdbcType=VARCHAR}, 
+      #{isStart,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Step" >
+    insert into re_step
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="procName != null" >
+        PROC_NAME_,
+      </if>
+      <if test="stepName != null" >
+        STEP_NAME_,
+      </if>
+      <if test="nextStepExp != null" >
+        NEXT_STEP_EXP_,
+      </if>
+      <if test="isStart != null" >
+        IS_START_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="procName != null" >
+        #{procName,jdbcType=VARCHAR},
+      </if>
+      <if test="stepName != null" >
+        #{stepName,jdbcType=VARCHAR},
+      </if>
+      <if test="nextStepExp != null" >
+        #{nextStepExp,jdbcType=VARCHAR},
+      </if>
+      <if test="isStart != null" >
+        #{isStart,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Step" >
+    update re_step
+    <set >
+      <if test="nextStepExp != null" >
+        NEXT_STEP_EXP_ = #{nextStepExp,jdbcType=VARCHAR},
+      </if>
+      <if test="isStart != null" >
+        IS_START_ = #{isStart,jdbcType=CHAR},
+      </if>
+    </set>
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Step" >
+    update re_step
+    set NEXT_STEP_EXP_ = #{nextStepExp,jdbcType=VARCHAR},
+      IS_START_ = #{isStart,jdbcType=CHAR}
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+      and STEP_NAME_ = #{stepName,jdbcType=VARCHAR}
+  </update>
+</mapper>

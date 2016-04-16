@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sample.mapper.TviewnodeMapper" >
+  <resultMap id="BaseResultMap" type="eastict.pam.pojo.Tviewnode" >
+    <id column="viewid" property="viewid" jdbcType="BIGINT" />
+    <id column="nodeid" property="nodeid" jdbcType="BIGINT" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="is_parent" property="isParent" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    viewid, nodeid, parent_id, name, is_parent
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="eastict.pam.pojo.TviewnodeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from viewnode
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="eastict.pam.pojo.TviewnodeKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from viewnode
+    where viewid = #{viewid,jdbcType=BIGINT}
+      and nodeid = #{nodeid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="eastict.pam.pojo.TviewnodeKey" >
+    delete from viewnode
+    where viewid = #{viewid,jdbcType=BIGINT}
+      and nodeid = #{nodeid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="eastict.pam.pojo.Tviewnode" >
+    insert into viewnode (viewid, nodeid, parent_id, 
+      name, is_parent)
+    values (#{viewid,jdbcType=BIGINT}, #{nodeid,jdbcType=BIGINT}, #{parentId,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{isParent,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="eastict.pam.pojo.Tviewnode" >
+    insert into viewnode
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="viewid != null" >
+        viewid,
+      </if>
+      <if test="nodeid != null" >
+        nodeid,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="isParent != null" >
+        is_parent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="viewid != null" >
+        #{viewid,jdbcType=BIGINT},
+      </if>
+      <if test="nodeid != null" >
+        #{nodeid,jdbcType=BIGINT},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null" >
+        #{isParent,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="eastict.pam.pojo.Tviewnode" >
+    update viewnode
+    <set >
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isParent != null" >
+        is_parent = #{isParent,jdbcType=BIT},
+      </if>
+    </set>
+    where viewid = #{viewid,jdbcType=BIGINT}
+      and nodeid = #{nodeid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="eastict.pam.pojo.Tviewnode" >
+    update viewnode
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      is_parent = #{isParent,jdbcType=BIT}
+    where viewid = #{viewid,jdbcType=BIGINT}
+      and nodeid = #{nodeid,jdbcType=BIGINT}
+  </update>
+</mapper>

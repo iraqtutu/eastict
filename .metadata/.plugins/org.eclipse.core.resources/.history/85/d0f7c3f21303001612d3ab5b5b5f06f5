@@ -1,0 +1,18 @@
+package src.main.java.cn.gov.customs.lightFlow.engine.meta;
+
+import src.main.java.cn.gov.customs.lightFlow.engine.meta.Task;
+import src.main.java.cn.gov.customs.lightFlow.engine.meta.TaskKey;
+
+public interface TaskMapper {
+    int deleteByPrimaryKey(TaskKey key);
+
+    int insert(Task record);
+
+    int insertSelective(Task record);
+
+    Task selectByPrimaryKey(TaskKey key);
+
+    int updateByPrimaryKeySelective(Task record);
+
+    int updateByPrimaryKey(Task record);
+}

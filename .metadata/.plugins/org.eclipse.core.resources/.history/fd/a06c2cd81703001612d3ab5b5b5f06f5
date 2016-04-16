@@ -1,0 +1,21 @@
+package sample.mapper;
+
+import eastict.sample.pojo.Model;
+import eastict.sample.pojo.ModelExample;
+import java.util.List;
+
+public interface ModelMapper {
+    int deleteByPrimaryKey(String procName);
+
+    int insert(Model record);
+
+    int insertSelective(Model record);
+
+    List<Model> selectByExample(ModelExample example);
+
+    Model selectByPrimaryKey(String procName);
+
+    int updateByPrimaryKeySelective(Model record);
+
+    int updateByPrimaryKey(Model record);
+}

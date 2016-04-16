@@ -1,0 +1,43 @@
+package eastict.sample.pojo;
+
+public class TaskKey {
+    private String procName;
+
+    private String stepName;
+
+    private String customCode;
+
+    private String taskId;
+
+    public String getProcName() {
+        return procName;
+    }
+
+    public void setProcName(String procName) {
+        this.procName = procName == null ? null : procName.trim();
+    }
+
+    public String getStepName() {
+        return stepName;
+    }
+
+    public void setStepName(String stepName) {
+        this.stepName = stepName == null ? null : stepName.trim();
+    }
+
+    public String getCustomCode() {
+        return customCode;
+    }
+
+    public void setCustomCode(String customCode) {
+        this.customCode = customCode == null ? null : customCode.trim();
+    }
+
+    public String getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId == null ? null : taskId.trim();
+    }
+}

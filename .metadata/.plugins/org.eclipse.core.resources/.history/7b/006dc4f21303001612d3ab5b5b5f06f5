@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="src.main.java.cn.gov.customs.lightFlow.engine.meta.ModelMapper" >
+  <resultMap id="BaseResultMap" type="src.main.java.cn.gov.customs.lightFlow.engine.meta.Model" >
+    <id column="PROC_NAME_" property="procName" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME_" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_UPDATE_TIME_" property="lastUpdateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    PROC_NAME_, CREATE_TIME_, LAST_UPDATE_TIME_
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from re_model
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from re_model
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Model" >
+    insert into re_model (PROC_NAME_, CREATE_TIME_, LAST_UPDATE_TIME_
+      )
+    values (#{procName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Model" >
+    insert into re_model
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="procName != null" >
+        PROC_NAME_,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME_,
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME_,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="procName != null" >
+        #{procName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null" >
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Model" >
+    update re_model
+    <set >
+      <if test="createTime != null" >
+        CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateTime != null" >
+        LAST_UPDATE_TIME_ = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="src.main.java.cn.gov.customs.lightFlow.engine.meta.Model" >
+    update re_model
+    set CREATE_TIME_ = #{createTime,jdbcType=TIMESTAMP},
+      LAST_UPDATE_TIME_ = #{lastUpdateTime,jdbcType=TIMESTAMP}
+    where PROC_NAME_ = #{procName,jdbcType=VARCHAR}
+  </update>
+</mapper>

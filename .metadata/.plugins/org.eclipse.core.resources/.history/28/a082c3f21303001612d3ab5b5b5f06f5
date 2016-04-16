@@ -1,0 +1,95 @@
+package src.main.java.cn.gov.customs.lightFlow.engine.meta;
+
+import java.util.Date;
+
+public class Task extends TaskKey {
+    private String executeId;
+
+    private String bizId;
+
+    private Date createTime;
+
+    private String lockFlag;
+
+    private Date lockedTime;
+
+    private Date endlockTime;
+
+    private String hungFlag;
+
+    private String opUser;
+
+    private String formKey;
+
+    public String getExecuteId() {
+        return executeId;
+    }
+
+    public void setExecuteId(String executeId) {
+        this.executeId = executeId == null ? null : executeId.trim();
+    }
+
+    public String getBizId() {
+        return bizId;
+    }
+
+    public void setBizId(String bizId) {
+        this.bizId = bizId == null ? null : bizId.trim();
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getLockFlag() {
+        return lockFlag;
+    }
+
+    public void setLockFlag(String lockFlag) {
+        this.lockFlag = lockFlag == null ? null : lockFlag.trim();
+    }
+
+    public Date getLockedTime() {
+        return lockedTime;
+    }
+
+    public void setLockedTime(Date lockedTime) {
+        this.lockedTime = lockedTime;
+    }
+
+    public Date getEndlockTime() {
+        return endlockTime;
+    }
+
+    public void setEndlockTime(Date endlockTime) {
+        this.endlockTime = endlockTime;
+    }
+
+    public String getHungFlag() {
+        return hungFlag;
+    }
+
+    public void setHungFlag(String hungFlag) {
+        this.hungFlag = hungFlag == null ? null : hungFlag.trim();
+    }
+
+    public String getOpUser() {
+        return opUser;
+    }
+
+    public void setOpUser(String opUser) {
+        this.opUser = opUser == null ? null : opUser.trim();
+    }
+
+    public String getFormKey() {
+        return formKey;
+    }
+
+    public void setFormKey(String formKey) {
+        this.formKey = formKey == null ? null : formKey.trim();
+    }
+}

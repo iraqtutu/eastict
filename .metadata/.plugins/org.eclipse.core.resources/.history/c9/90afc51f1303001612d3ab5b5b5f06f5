@@ -1,0 +1,7 @@
+#Mybatis Generator configuration
+project = D:/WORK/PTSFramework/lightFlow
+classPath= E:/mysql-connector-java-5.1.30.jar
+jdbc_driver = com.mysql.jdbc.Driver
+jdbc_url=jdbc:mysql://localhost:3306/lightflow
+jdbc_user=root
+jdbc_password=
