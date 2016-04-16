@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.eastict</groupId>
-    <artifactId>esatict-parent</artifactId>
+    <artifactId>eastict-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>eastict-pojo</artifactId>
