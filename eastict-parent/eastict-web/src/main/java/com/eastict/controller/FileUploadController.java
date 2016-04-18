@@ -22,7 +22,6 @@ public class FileUploadController {
 	@ResponseBody
 	public String pictureUpload(MultipartFile uploadFile) {
 		Map result = uploadService.uploadFile(uploadFile);
-		//为了保证功能的兼容性，需要把Result转换成json格式的字符串。
 		String json = JsonUtils.objectToJson(result);
 		return json;
 	}
