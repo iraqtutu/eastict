@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.eastict.utils.FtpUtil;
-import com.eastict.utils.IDUtils;
+import com.eastict.common.utils.FtpUtil;
+import com.eastict.common.utils.IDUtils;
 
 
 @Service
