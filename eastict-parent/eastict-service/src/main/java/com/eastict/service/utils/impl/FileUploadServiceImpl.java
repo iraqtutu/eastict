@@ -30,8 +30,8 @@ public class FileUploadServiceImpl implements FileUploadService {
 	private String IMAGE_BASE_URL;
 
 	@Override
-	public Map uploadFile(MultipartFile uploadFile) {
-		Map resultMap = new HashMap<>();
+	public Map<String,Object> uploadFile(MultipartFile uploadFile) {
+		Map<String,Object> resultMap = new HashMap<>();
 		try {
 			//生成一个新的文件名
 			//取原始文件名
