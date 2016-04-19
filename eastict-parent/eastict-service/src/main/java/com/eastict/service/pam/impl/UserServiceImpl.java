@@ -4,6 +4,7 @@ import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.eastict.pojo.ControllerResult;
 import com.eastict.service.pam.UserService;
 
 import eastict.mapper.pam.TuserMapper;
@@ -15,7 +16,7 @@ public class UserServiceImpl implements UserService {
 	private TuserMapper userMapper;
 	
 	@Override
-	public Tuser createUser(String userid, String logonname, String displayname, String pwdmd5, DateTime createTime,
+	public ControllerResult createUser(String userid, String logonname, String displayname, String pwdmd5, DateTime createTime,
 			String pictureUrl) {
 		Tuser user = new Tuser();
 		user.setUserid(userid);
@@ -26,6 +27,7 @@ public class UserServiceImpl implements UserService {
 		user.setEnabled(true);
 		user.setPictureurl(pictureUrl);
 		userMapper.insert(user);
+		return ControllerResult.ok();
 	}
 
 	@Override
