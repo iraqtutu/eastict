@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.eastict.common.utils.JsonUtils;
-import com.eastict.service.FileUploadService;
+import com.eastict.service.utils.FileUploadService;
 
 
 @Controller
@@ -23,7 +23,7 @@ public class FileUploadController {
 	@RequestMapping(value="/file/upload",method = RequestMethod.POST)
 	@ResponseBody
 	public String fileUpload(@RequestParam(value="file", required=true) MultipartFile uploadFile) {
-		Map result = uploadService.uploadFile(uploadFile);
+		Map<String,Object> result = uploadService.uploadFile(uploadFile);
 		String json = JsonUtils.objectToJson(result);
 		return json;
 	}
