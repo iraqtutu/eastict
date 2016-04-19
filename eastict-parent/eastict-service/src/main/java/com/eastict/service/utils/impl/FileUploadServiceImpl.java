@@ -1,4 +1,4 @@
-package com.eastict.service.impl;
+package com.eastict.service.utils.impl;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -10,10 +10,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.eastict.common.utils.FtpUtil;
 import com.eastict.common.utils.IDUtils;
+import com.eastict.service.utils.FileUploadService;
 
 
 @Service
-public class FileUploadServiceImpl implements com.eastict.service.FileUploadService {
+public class FileUploadServiceImpl implements FileUploadService {
 	
 	@Value("${FTP_ADDRESS}")
 	private String FTP_ADDRESS;

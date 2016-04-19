@@ -1,4 +1,4 @@
-package com.eastict.service;
+package com.eastict.service.utils;
 
 import java.util.Map;
 
@@ -6,5 +6,5 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface FileUploadService {
 
-	Map uploadFile(MultipartFile uploadFile);
+	Map<String,Object> uploadFile(MultipartFile uploadFile);
 }
