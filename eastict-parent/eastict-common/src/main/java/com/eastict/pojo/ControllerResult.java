@@ -80,10 +80,10 @@ public class ControllerResult {
     }
 
     /**
-     * 将json结果集转化为TaotaoResult对象
+     * 将json结果集转化为Result对象
      * 
      * @param jsonData json数据
-     * @param clazz TaotaoResult中的object类型
+     * @param clazz Result中的object类型
      * @return
      */
     public static ControllerResult formatToPojo(String jsonData, Class<?> clazz) {
