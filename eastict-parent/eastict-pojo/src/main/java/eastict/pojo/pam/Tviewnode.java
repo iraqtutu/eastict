@@ -1,4 +1,4 @@
-package eastict.pam.pojo;
+package eastict.pojo.pam;
 
 public class Tviewnode extends TviewnodeKey {
     private Long parentId;

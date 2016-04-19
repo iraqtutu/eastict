@@ -1,4 +1,4 @@
-package eastict.pam.pojo;
+package eastict.pojo.pam;
 
 import java.util.Date;
 

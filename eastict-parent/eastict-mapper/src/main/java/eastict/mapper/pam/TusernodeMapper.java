@@ -1,8 +1,9 @@
-package eastict.pam.mapper;
+package eastict.mapper.pam;
 
-import eastict.pam.pojo.Tusernode;
-import eastict.pam.pojo.TusernodeExample;
 import java.util.List;
+
+import eastict.pojo.pam.Tusernode;
+import eastict.pojo.pam.TusernodeExample;
 
 public interface TusernodeMapper {
     int insert(Tusernode record);

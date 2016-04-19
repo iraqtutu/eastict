@@ -1,8 +1,9 @@
-package eastict.pam.mapper;
+package eastict.mapper.pam;
 
-import eastict.pam.pojo.Tfunction;
-import eastict.pam.pojo.TfunctionExample;
 import java.util.List;
+
+import eastict.pojo.pam.Tfunction;
+import eastict.pojo.pam.TfunctionExample;
 
 public interface TfunctionMapper {
     int deleteByPrimaryKey(Long funcid);

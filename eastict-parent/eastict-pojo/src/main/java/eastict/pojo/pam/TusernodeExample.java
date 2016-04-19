@@ -1,16 +1,16 @@
-package eastict.pam.pojo;
+package eastict.pojo.pam;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TnodepropertyExample {
+public class TusernodeExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TnodepropertyExample() {
+    public TusernodeExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,63 +104,63 @@ public class TnodepropertyExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andPropertyidIsNull() {
-            addCriterion("propertyid is null");
+        public Criteria andViewidIsNull() {
+            addCriterion("viewid is null");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidIsNotNull() {
-            addCriterion("propertyid is not null");
+        public Criteria andViewidIsNotNull() {
+            addCriterion("viewid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidEqualTo(Long value) {
-            addCriterion("propertyid =", value, "propertyid");
+        public Criteria andViewidEqualTo(Long value) {
+            addCriterion("viewid =", value, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidNotEqualTo(Long value) {
-            addCriterion("propertyid <>", value, "propertyid");
+        public Criteria andViewidNotEqualTo(Long value) {
+            addCriterion("viewid <>", value, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidGreaterThan(Long value) {
-            addCriterion("propertyid >", value, "propertyid");
+        public Criteria andViewidGreaterThan(Long value) {
+            addCriterion("viewid >", value, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidGreaterThanOrEqualTo(Long value) {
-            addCriterion("propertyid >=", value, "propertyid");
+        public Criteria andViewidGreaterThanOrEqualTo(Long value) {
+            addCriterion("viewid >=", value, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidLessThan(Long value) {
-            addCriterion("propertyid <", value, "propertyid");
+        public Criteria andViewidLessThan(Long value) {
+            addCriterion("viewid <", value, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidLessThanOrEqualTo(Long value) {
-            addCriterion("propertyid <=", value, "propertyid");
+        public Criteria andViewidLessThanOrEqualTo(Long value) {
+            addCriterion("viewid <=", value, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidIn(List<Long> values) {
-            addCriterion("propertyid in", values, "propertyid");
+        public Criteria andViewidIn(List<Long> values) {
+            addCriterion("viewid in", values, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidNotIn(List<Long> values) {
-            addCriterion("propertyid not in", values, "propertyid");
+        public Criteria andViewidNotIn(List<Long> values) {
+            addCriterion("viewid not in", values, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidBetween(Long value1, Long value2) {
-            addCriterion("propertyid between", value1, value2, "propertyid");
+        public Criteria andViewidBetween(Long value1, Long value2) {
+            addCriterion("viewid between", value1, value2, "viewid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertyidNotBetween(Long value1, Long value2) {
-            addCriterion("propertyid not between", value1, value2, "propertyid");
+        public Criteria andViewidNotBetween(Long value1, Long value2) {
+            addCriterion("viewid not between", value1, value2, "viewid");
             return (Criteria) this;
         }
 
@@ -224,143 +224,73 @@ public class TnodepropertyExample {
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameIsNull() {
-            addCriterion("propertyname is null");
+        public Criteria andUseridIsNull() {
+            addCriterion("userid is null");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameIsNotNull() {
-            addCriterion("propertyname is not null");
+        public Criteria andUseridIsNotNull() {
+            addCriterion("userid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameEqualTo(String value) {
-            addCriterion("propertyname =", value, "propertyname");
+        public Criteria andUseridEqualTo(String value) {
+            addCriterion("userid =", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameNotEqualTo(String value) {
-            addCriterion("propertyname <>", value, "propertyname");
+        public Criteria andUseridNotEqualTo(String value) {
+            addCriterion("userid <>", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameGreaterThan(String value) {
-            addCriterion("propertyname >", value, "propertyname");
+        public Criteria andUseridGreaterThan(String value) {
+            addCriterion("userid >", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameGreaterThanOrEqualTo(String value) {
-            addCriterion("propertyname >=", value, "propertyname");
+        public Criteria andUseridGreaterThanOrEqualTo(String value) {
+            addCriterion("userid >=", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameLessThan(String value) {
-            addCriterion("propertyname <", value, "propertyname");
+        public Criteria andUseridLessThan(String value) {
+            addCriterion("userid <", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameLessThanOrEqualTo(String value) {
-            addCriterion("propertyname <=", value, "propertyname");
+        public Criteria andUseridLessThanOrEqualTo(String value) {
+            addCriterion("userid <=", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameLike(String value) {
-            addCriterion("propertyname like", value, "propertyname");
+        public Criteria andUseridLike(String value) {
+            addCriterion("userid like", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameNotLike(String value) {
-            addCriterion("propertyname not like", value, "propertyname");
+        public Criteria andUseridNotLike(String value) {
+            addCriterion("userid not like", value, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameIn(List<String> values) {
-            addCriterion("propertyname in", values, "propertyname");
+        public Criteria andUseridIn(List<String> values) {
+            addCriterion("userid in", values, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameNotIn(List<String> values) {
-            addCriterion("propertyname not in", values, "propertyname");
+        public Criteria andUseridNotIn(List<String> values) {
+            addCriterion("userid not in", values, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameBetween(String value1, String value2) {
-            addCriterion("propertyname between", value1, value2, "propertyname");
+        public Criteria andUseridBetween(String value1, String value2) {
+            addCriterion("userid between", value1, value2, "userid");
             return (Criteria) this;
         }
 
-        public Criteria andPropertynameNotBetween(String value1, String value2) {
-            addCriterion("propertyname not between", value1, value2, "propertyname");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueIsNull() {
-            addCriterion("propertyvalue is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueIsNotNull() {
-            addCriterion("propertyvalue is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueEqualTo(String value) {
-            addCriterion("propertyvalue =", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueNotEqualTo(String value) {
-            addCriterion("propertyvalue <>", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueGreaterThan(String value) {
-            addCriterion("propertyvalue >", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueGreaterThanOrEqualTo(String value) {
-            addCriterion("propertyvalue >=", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueLessThan(String value) {
-            addCriterion("propertyvalue <", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueLessThanOrEqualTo(String value) {
-            addCriterion("propertyvalue <=", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueLike(String value) {
-            addCriterion("propertyvalue like", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueNotLike(String value) {
-            addCriterion("propertyvalue not like", value, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueIn(List<String> values) {
-            addCriterion("propertyvalue in", values, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueNotIn(List<String> values) {
-            addCriterion("propertyvalue not in", values, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueBetween(String value1, String value2) {
-            addCriterion("propertyvalue between", value1, value2, "propertyvalue");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertyvalueNotBetween(String value1, String value2) {
-            addCriterion("propertyvalue not between", value1, value2, "propertyvalue");
+        public Criteria andUseridNotBetween(String value1, String value2) {
+            addCriterion("userid not between", value1, value2, "userid");
             return (Criteria) this;
         }
     }

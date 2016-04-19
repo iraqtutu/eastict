@@ -1,8 +1,9 @@
-package eastict.pam.mapper;
+package eastict.mapper.pam;
 
-import eastict.pam.pojo.Tnodeproperty;
-import eastict.pam.pojo.TnodepropertyExample;
 import java.util.List;
+
+import eastict.pojo.pam.Tnodeproperty;
+import eastict.pojo.pam.TnodepropertyExample;
 
 public interface TnodepropertyMapper {
     int deleteByPrimaryKey(Long propertyid);

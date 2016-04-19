@@ -1,8 +1,9 @@
-package eastict.pam.mapper;
+package eastict.mapper.pam;
 
-import eastict.pam.pojo.Tapp;
-import eastict.pam.pojo.TappExample;
 import java.util.List;
+
+import eastict.pojo.pam.Tapp;
+import eastict.pojo.pam.TappExample;
 
 public interface TappMapper {
     int insert(Tapp record);

@@ -1,9 +1,10 @@
-package eastict.pam.mapper;
+package eastict.mapper.pam;
 
-import eastict.pam.pojo.Tviewnode;
-import eastict.pam.pojo.TviewnodeExample;
-import eastict.pam.pojo.TviewnodeKey;
 import java.util.List;
+
+import eastict.pojo.pam.Tviewnode;
+import eastict.pojo.pam.TviewnodeExample;
+import eastict.pojo.pam.TviewnodeKey;
 
 public interface TviewnodeMapper {
     int deleteByPrimaryKey(TviewnodeKey key);

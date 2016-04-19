@@ -1,8 +1,9 @@
-package eastict.pam.mapper;
+package eastict.mapper.pam;
 
-import eastict.pam.pojo.Tview;
-import eastict.pam.pojo.TviewExample;
 import java.util.List;
+
+import eastict.pojo.pam.Tview;
+import eastict.pojo.pam.TviewExample;
 
 public interface TviewMapper {
     int deleteByPrimaryKey(Long viewid);

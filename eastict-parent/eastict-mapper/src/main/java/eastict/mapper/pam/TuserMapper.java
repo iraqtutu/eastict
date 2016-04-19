@@ -1,8 +1,9 @@
-package eastict.pam.mapper;
+package eastict.mapper.pam;
 
-import eastict.pam.pojo.Tuser;
-import eastict.pam.pojo.TuserExample;
 import java.util.List;
+
+import eastict.pojo.pam.Tuser;
+import eastict.pojo.pam.TuserExample;
 
 public interface TuserMapper {
     int deleteByPrimaryKey(String userid);

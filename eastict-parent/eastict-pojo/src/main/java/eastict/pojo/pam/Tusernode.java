@@ -1,9 +1,11 @@
-package eastict.pam.pojo;
+package eastict.pojo.pam;
 
-public class TviewnodeKey {
+public class Tusernode {
     private Long viewid;
 
     private Long nodeid;
+
+    private String userid;
 
     public Long getViewid() {
         return viewid;
@@ -19,5 +21,13 @@ public class TviewnodeKey {
 
     public void setNodeid(Long nodeid) {
         this.nodeid = nodeid;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid == null ? null : userid.trim();
     }
 }
