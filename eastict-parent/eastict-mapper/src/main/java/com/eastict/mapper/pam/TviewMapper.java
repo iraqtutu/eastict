@@ -1,4 +1,4 @@
-package eastict.mapper.pam;
+package com.eastict.mapper.pam;
 
 import eastict.pojo.pam.Tview;
 import eastict.pojo.pam.TviewExample;

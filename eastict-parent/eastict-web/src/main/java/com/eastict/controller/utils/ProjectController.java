@@ -23,13 +23,14 @@ import org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondit
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+import com.eastict.common.utils.JsonUtils;
 import com.eastict.pojo.RequestToMethodItem;
 
 @Controller
 public class ProjectController {
 	@RequestMapping(value = "/help",method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView index(HttpServletRequest request) {
+	public String getUrlMas(HttpServletRequest request) {
 		ServletContext servletContext = request.getSession().getServletContext();
 		if (servletContext == null) {
 			return null;
@@ -70,6 +71,8 @@ public class ProjectController {
 				break;
 			}
 		}
-		return new ModelAndView("index").addObject("MethodList", requestToMethodItemList);
+		String json = JsonUtils.objectToJson(requestToMethodItemList);
+		return json;
+		//return requestToMethodItemList;//new ModelAndView("index").addObject("MethodList", requestToMethodItemList);
 	}
 }
