@@ -1,4 +1,4 @@
-package com.eastict.controller;
+package com.eastict.controller.utils;
 
 import java.util.Map;
 
