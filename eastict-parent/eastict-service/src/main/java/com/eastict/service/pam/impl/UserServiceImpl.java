@@ -1,5 +1,7 @@
 package com.eastict.service.pam.impl;
 
+import java.util.List;
+
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,6 +11,7 @@ import com.eastict.service.pam.UserService;
 
 import eastict.mapper.pam.TuserMapper;
 import eastict.pojo.pam.Tuser;
+import eastict.pojo.pam.TuserExample;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -32,14 +35,20 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Tuser getUserByID(String userid) {
-		// TODO Auto-generated method stub
-		return null;
+		Tuser user = userMapper.selectByPrimaryKey(userid);
+		return user;
 	}
 
 	@Override
 	public Tuser getUserByLoginName(String loginName) {
-		// TODO Auto-generated method stub
-		return null;
+		TuserExample xampl = new TuserExample();
+		xampl.createCriteria().andLogonnameEqualTo(loginName);
+		List<Tuser> users = userMapper.selectByExample(xampl);
+		if(users!=null && users.size() > 0){
+			return users.get(1);
+		}else{
+			return null;
+		}
 	}
 
 }
