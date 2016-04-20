@@ -1,78 +1,40 @@
 package com.eastict.controller.utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.BeanFactoryUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.HandlerMapping;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.condition.PatternsRequestCondition;
-import org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondition;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import com.eastict.common.utils.JsonUtils;
-import com.eastict.pojo.RequestToMethodItem;
 
 @Controller
+@RequestMapping(value = "/project")
 public class ProjectController {
-	@RequestMapping(value = "/help",method = RequestMethod.GET)
+    @Autowired
+    private RequestMappingHandlerMapping handlerMapping;
+	
+	@RequestMapping(value = "/help",method = RequestMethod.GET,produces = "application/json; charset=utf-8")
 	@ResponseBody
-	public String getUrlMas(HttpServletRequest request) {
-		ServletContext servletContext = request.getSession().getServletContext();
-		if (servletContext == null) {
-			return null;
-		}
-		WebApplicationContext appContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
-		// 请求url和处理方法的映射
-		List<RequestToMethodItem> requestToMethodItemList = new ArrayList<RequestToMethodItem>();
-		// 获取所有的RequestMapping
-		Map<String, HandlerMapping> allRequestMappings = BeanFactoryUtils.beansOfTypeIncludingAncestors(appContext,
-				HandlerMapping.class, true, false);
-		for (HandlerMapping handlerMapping : allRequestMappings.values()) {
-			// 本项目只需要RequestMappingHandlerMapping中的URL映射
-			if (handlerMapping instanceof RequestMappingHandlerMapping) {
-				RequestMappingHandlerMapping requestMappingHandlerMapping = (RequestMappingHandlerMapping) handlerMapping;
-				Map<RequestMappingInfo, HandlerMethod> handlerMethods = requestMappingHandlerMapping
-						.getHandlerMethods();
-				for (Map.Entry<RequestMappingInfo, HandlerMethod> requestMappingInfoHandlerMethodEntry : handlerMethods
-						.entrySet()) {
-					RequestMappingInfo requestMappingInfo = requestMappingInfoHandlerMethodEntry.getKey();
-					HandlerMethod mappingInfoValue = requestMappingInfoHandlerMethodEntry.getValue();
-					RequestMethodsRequestCondition methodCondition = requestMappingInfo.getMethodsCondition();
-					Set<RequestMethod> mtds = methodCondition.getMethods();
-					RequestMethod[] ary = new RequestMethod[mtds.size()];
-					ary = mtds.toArray(ary);
-					String requestType = ary[0].name();
-					PatternsRequestCondition patternsCondition = requestMappingInfo.getPatternsCondition();
-					Set<String> pts = patternsCondition.getPatterns();
-					String[] strs = new String[pts.size()];
-					strs = pts.toArray(strs);
-					String requestUrl = strs[0];
-					String controllerName = mappingInfoValue.getBeanType().toString();
-					String requestMethodName = mappingInfoValue.getMethod().getName();
-					Class<?>[] methodParamTypes = mappingInfoValue.getMethod().getParameterTypes();
-					RequestToMethodItem item = new RequestToMethodItem(requestUrl, requestType, controllerName,
-							requestMethodName, methodParamTypes);
-					requestToMethodItemList.add(item);
-				}
-				break;
-			}
-		}
-		String json = JsonUtils.objectToJson(requestToMethodItemList);
-		return json;
+	public String getUrlMaps(HttpServletRequest request) {
+		StringBuilder sb = new StringBuilder();
+		Map<String,Object> rlt = new HashMap<String,Object>();
+        Map map =  this.handlerMapping.getHandlerMethods();
+        Iterator<?> iterator = map.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry entry = (Map.Entry) iterator.next();
+            sb.append("访问路径" + entry.getKey().toString() + "\r\n------对应的方法" + entry.getValue() + "\r\n\r\n");
+            System.out.println(entry.getKey() +"\n" + entry.getValue() + "\r\n\r\n");
+        }
+        return sb.toString();
+        		
 		//return requestToMethodItemList;//new ModelAndView("index").addObject("MethodList", requestToMethodItemList);
 	}
 }
