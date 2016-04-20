@@ -15,6 +15,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.eastict</groupId>
+			<artifactId>eastict-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.eastict</groupId>
 			<artifactId>eastict-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
