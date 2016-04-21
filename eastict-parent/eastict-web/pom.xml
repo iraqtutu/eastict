@@ -10,7 +10,7 @@
 	</parent>
 	<artifactId>eastict-web</artifactId>
 	<packaging>war</packaging>
-	<name>esatict-web</name>
+	<name>eastict-web</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
