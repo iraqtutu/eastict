@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" action="../file/upload" enctype="multipart/form-data">
+	<form method="post" action="/eastict-web/file/upload" enctype="multipart/form-data">
 		<input type="file" name="file" id="upfile1">
 		<input type="submit">
 	</form>
