@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<input name="" type="text" alt="请输入用户名">
+	<input name="" type="text" alt="请输入用户名">
 </body>
 </html>
