@@ -15,8 +15,14 @@ public class ServiceGenerator {
 
 	public static void main(String[] args) throws Exception {
 		ServiceGenerator gen = new ServiceGenerator();
+		System.out.println("使用方法：");
+		System.out.println("1,把POJO和Mapper的包复制到guoli的源码目录下");
+		System.out.println("2,修改guli的main函数，指定扫描的命名空间和输出的目录");
 		//扫描eastict.mapper.pam包下的所有Mapper,生成Service到./genSource目录下面，包名为eastict.service
-		gen.genServices( "eastict.mapper.pam", "eastict.service","./genSource");
+		gen.genServices( "eastict.mapper.pam", "eastict.service.pam","./genSource");
+		//扫描eastict.pojo.pam包下的所有pojo,生成jsp到./genSource目录下面，目录名为:jsp
+		JspGenerator jspgen = new JspGenerator();
+		jspgen.genJsps("stylebase", "eastict.pojo.pam","./genSource");
 	}
 
 	// 扫描指定命名空间下以Mapper结尾的接口

@@ -1,6 +1,9 @@
 package com.eastict.guoli;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,7 +33,7 @@ public class JspGenerator {
 		gen.genJsps("stylebase", "eastict.pojo.pam");
 	}
 */
-	public void genJsps(String styleName, String nameSpace) {
+	public void genJsps(String styleName, String nameSpace,String savePath) {
 		initAll(styleName);
 		List<Class<?>> classes = ClassUtil.getClasses(nameSpace);
 		for (Class<?> cls : classes) {
@@ -43,10 +46,7 @@ public class JspGenerator {
 			}
 			if (!ignor) {
 				//生成JSP
-				System.out.println(getPojoJsp(cls));
-				//生成Service(CRUD)
-				
-				//生成Controller(CRUD)
+				WriteStringToFile(savePath,"jsp",cls.getSimpleName() + "add.jsp",getPojoJsp(cls));
 			}
 		}
 	}
@@ -129,4 +129,49 @@ public class JspGenerator {
 		return sb.toString();
 
 	}
+
+	private void WriteStringToFile(String basePath, String nameSpace, String fileName, String content) {
+		String tmp = nameSpace.replace(".", "/");
+		String fullPath = basePath + "/" + tmp;
+		fullPath = fullPath.replace("//", "/");
+		ensurePath(fullPath);
+		String newFile = fullPath + "/" + fileName;
+		File txt = new File(newFile);
+		try {
+			if (!txt.exists()) {
+				txt.createNewFile();
+			}
+			FileWriter writer = new FileWriter(txt);
+			BufferedWriter bwriter = new BufferedWriter(writer);
+			bwriter.write(content);
+			//writer.close();
+			bwriter.flush();
+			bwriter.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	private void ensurePath(String fullPath) {
+		String paths[] = fullPath.split("/");
+		String dir = paths[0];
+		File dirFile = new File(dir);
+		if (!dirFile.exists()) {
+			dirFile.mkdir();
+			System.out.println("创建目录为：" + dir);
+		}
+		for (int i = 1; i < paths.length; i++) {
+			try {
+				dir = dir + "/" + paths[i];
+				dirFile = new File(dir);
+				if (!dirFile.exists()) {
+					dirFile.mkdir();
+					System.out.println("创建目录为：" + dir);
+				}
+			} catch (Exception err) {
+				System.err.println("文件夹创建发生异常");
+			}
+		}
+	}
+
 }

@@ -1,4 +1,4 @@
-package com.eastict.mapper.pam;
+package eastict.mapper.pam;
 
 import eastict.pojo.pam.Tnodeproperty;
 import eastict.pojo.pam.TnodepropertyExample;

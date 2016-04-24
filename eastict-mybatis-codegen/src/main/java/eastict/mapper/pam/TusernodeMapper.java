@@ -1,4 +1,4 @@
-package com.eastict.mapper.pam;
+package eastict.mapper.pam;
 
 import eastict.pojo.pam.Tusernode;
 import eastict.pojo.pam.TusernodeExample;

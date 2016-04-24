@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="eastict.mapper.pam.TuserMapper" >
+  <resultMap id="BaseResultMap" type="eastict.pojo.pam.Tuser" >
+    <id column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="logonname" property="logonname" jdbcType="VARCHAR" />
+    <result column="displayname" property="displayname" jdbcType="VARCHAR" />
+    <result column="pwdmd5" property="pwdmd5" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="enabled" property="enabled" jdbcType="BIT" />
+    <result column="pictureurl" property="pictureurl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    userid, logonname, displayname, pwdmd5, createtime, enabled, pictureurl
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="eastict.pojo.pam.TuserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from user
+    where userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="eastict.pojo.pam.Tuser" >
+    insert into user (userid, logonname, displayname, 
+      pwdmd5, createtime, enabled, 
+      pictureurl)
+    values (#{userid,jdbcType=VARCHAR}, #{logonname,jdbcType=VARCHAR}, #{displayname,jdbcType=VARCHAR}, 
+      #{pwdmd5,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, #{enabled,jdbcType=BIT}, 
+      #{pictureurl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="eastict.pojo.pam.Tuser" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="logonname != null" >
+        logonname,
+      </if>
+      <if test="displayname != null" >
+        displayname,
+      </if>
+      <if test="pwdmd5 != null" >
+        pwdmd5,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+      <if test="enabled != null" >
+        enabled,
+      </if>
+      <if test="pictureurl != null" >
+        pictureurl,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="logonname != null" >
+        #{logonname,jdbcType=VARCHAR},
+      </if>
+      <if test="displayname != null" >
+        #{displayname,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdmd5 != null" >
+        #{pwdmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enabled != null" >
+        #{enabled,jdbcType=BIT},
+      </if>
+      <if test="pictureurl != null" >
+        #{pictureurl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="eastict.pojo.pam.Tuser" >
+    update user
+    <set >
+      <if test="logonname != null" >
+        logonname = #{logonname,jdbcType=VARCHAR},
+      </if>
+      <if test="displayname != null" >
+        displayname = #{displayname,jdbcType=VARCHAR},
+      </if>
+      <if test="pwdmd5 != null" >
+        pwdmd5 = #{pwdmd5,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enabled != null" >
+        enabled = #{enabled,jdbcType=BIT},
+      </if>
+      <if test="pictureurl != null" >
+        pictureurl = #{pictureurl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="eastict.pojo.pam.Tuser" >
+    update user
+    set logonname = #{logonname,jdbcType=VARCHAR},
+      displayname = #{displayname,jdbcType=VARCHAR},
+      pwdmd5 = #{pwdmd5,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      enabled = #{enabled,jdbcType=BIT},
+      pictureurl = #{pictureurl,jdbcType=VARCHAR}
+    where userid = #{userid,jdbcType=VARCHAR}
+  </update>
+</mapper>
