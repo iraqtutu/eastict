@@ -1,0 +1,4 @@
+<div>
+	<div>$field:</div>
+	<input class="" type="checkbox" name="$field">
+</div>

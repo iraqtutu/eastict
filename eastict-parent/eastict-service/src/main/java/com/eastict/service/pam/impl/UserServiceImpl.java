@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eastict.mapper.pam.TuserMapper;
-import com.eastict.pojo.ControllerResult;
+import com.eastict.pojo.CusResult;
 import com.eastict.service.pam.UserService;
 
 import eastict.pojo.pam.Tuser;
@@ -19,18 +19,11 @@ public class UserServiceImpl implements UserService {
 	private TuserMapper userMapper;
 	
 	@Override
-	public ControllerResult createUser(String userid, String logonname, String displayname, String pwdmd5, DateTime createTime,
-			String pictureUrl) {
-		Tuser user = new Tuser();
-		user.setUserid(userid);
-		user.setLogonname(logonname);
-		user.setDisplayname(displayname);
-		user.setPwdmd5(pwdmd5);
+	public CusResult createUser(Tuser user) {
 		user.setCreatetime(DateTime.now().toDate());
 		user.setEnabled(true);
-		user.setPictureurl(pictureUrl);
 		userMapper.insert(user);
-		return ControllerResult.ok();
+		return CusResult.ok();
 	}
 
 	@Override

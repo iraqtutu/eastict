@@ -1,0 +1,4 @@
+<div>
+	<div>$field:</div>
+	<input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
+</div>
