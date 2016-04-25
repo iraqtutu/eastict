@@ -1,4 +1,4 @@
-<div>
-	<div>$field:</div>
-	<input class="easyui-filebox" name="$field:" data-options="prompt:'选择一个文件...'">
-</div>
+<tr>
+	<td>$field:</td>
+	<td><input class="easyui-filebox" name="$field:" data-options="prompt:'选择一个文件...'"></td>
+</tr>

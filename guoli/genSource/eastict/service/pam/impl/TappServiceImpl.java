@@ -19,13 +19,23 @@ public class TappServiceImpl  implements TappService{
 	private TappMapper _TappMapper;
 	@Override
 	public CusResult insert(Tapp _Tapp){
-		Object rlt = _TappMapper.insert(_Tapp);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TappMapper.insert(_Tapp);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult insertSelective(Tapp _Tapp){
-		Object rlt = _TappMapper.insertSelective(_Tapp);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TappMapper.insertSelective(_Tapp);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public Tapp selectByPrimaryKey(Long _Long){
@@ -33,18 +43,33 @@ public class TappServiceImpl  implements TappService{
 	}
 	@Override
 	public CusResult updateByPrimaryKey(Tapp _Tapp){
-		Object rlt = _TappMapper.updateByPrimaryKey(_Tapp);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TappMapper.updateByPrimaryKey(_Tapp);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult updateByPrimaryKeySelective(Tapp _Tapp){
-		Object rlt = _TappMapper.updateByPrimaryKeySelective(_Tapp);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TappMapper.updateByPrimaryKeySelective(_Tapp);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult deleteByPrimaryKey(Long _Long){
-		Object rlt = _TappMapper.deleteByPrimaryKey(_Long);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TappMapper.deleteByPrimaryKey(_Long);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public List<Tapp> selectByExample(TappExample _TappExample){

@@ -6,9 +6,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-
+	<mvc:default-servlet-handler />
 	<context:property-placeholder location="classpath:deploy.properties"
-		file-encoding="UTF-8" ignore-unresolvable="true"/>
+		file-encoding="UTF-8" ignore-unresolvable="true" />
 	<context:component-scan base-package="eastict.controller" />
 	<mvc:annotation-driven />
 

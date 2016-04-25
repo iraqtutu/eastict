@@ -19,13 +19,23 @@ public class TviewServiceImpl  implements TviewService{
 	private TviewMapper _TviewMapper;
 	@Override
 	public CusResult insert(Tview _Tview){
-		Object rlt = _TviewMapper.insert(_Tview);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewMapper.insert(_Tview);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult insertSelective(Tview _Tview){
-		Object rlt = _TviewMapper.insertSelective(_Tview);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewMapper.insertSelective(_Tview);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public Tview selectByPrimaryKey(Long _Long){
@@ -33,18 +43,33 @@ public class TviewServiceImpl  implements TviewService{
 	}
 	@Override
 	public CusResult updateByPrimaryKey(Tview _Tview){
-		Object rlt = _TviewMapper.updateByPrimaryKey(_Tview);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewMapper.updateByPrimaryKey(_Tview);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult updateByPrimaryKeySelective(Tview _Tview){
-		Object rlt = _TviewMapper.updateByPrimaryKeySelective(_Tview);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewMapper.updateByPrimaryKeySelective(_Tview);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult deleteByPrimaryKey(Long _Long){
-		Object rlt = _TviewMapper.deleteByPrimaryKey(_Long);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewMapper.deleteByPrimaryKey(_Long);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public List<Tview> selectByExample(TviewExample _TviewExample){

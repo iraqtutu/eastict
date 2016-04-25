@@ -18,13 +18,23 @@ public class TusernodeServiceImpl  implements TusernodeService{
 	private TusernodeMapper _TusernodeMapper;
 	@Override
 	public CusResult insert(Tusernode _Tusernode){
-		Object rlt = _TusernodeMapper.insert(_Tusernode);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TusernodeMapper.insert(_Tusernode);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult insertSelective(Tusernode _Tusernode){
-		Object rlt = _TusernodeMapper.insertSelective(_Tusernode);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TusernodeMapper.insertSelective(_Tusernode);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public List<Tusernode> selectByExample(TusernodeExample _TusernodeExample){

@@ -19,13 +19,23 @@ public class TnodepropertyServiceImpl  implements TnodepropertyService{
 	private TnodepropertyMapper _TnodepropertyMapper;
 	@Override
 	public CusResult insert(Tnodeproperty _Tnodeproperty){
-		Object rlt = _TnodepropertyMapper.insert(_Tnodeproperty);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TnodepropertyMapper.insert(_Tnodeproperty);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult insertSelective(Tnodeproperty _Tnodeproperty){
-		Object rlt = _TnodepropertyMapper.insertSelective(_Tnodeproperty);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TnodepropertyMapper.insertSelective(_Tnodeproperty);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public Tnodeproperty selectByPrimaryKey(Long _Long){
@@ -33,18 +43,33 @@ public class TnodepropertyServiceImpl  implements TnodepropertyService{
 	}
 	@Override
 	public CusResult updateByPrimaryKey(Tnodeproperty _Tnodeproperty){
-		Object rlt = _TnodepropertyMapper.updateByPrimaryKey(_Tnodeproperty);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TnodepropertyMapper.updateByPrimaryKey(_Tnodeproperty);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult updateByPrimaryKeySelective(Tnodeproperty _Tnodeproperty){
-		Object rlt = _TnodepropertyMapper.updateByPrimaryKeySelective(_Tnodeproperty);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TnodepropertyMapper.updateByPrimaryKeySelective(_Tnodeproperty);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult deleteByPrimaryKey(Long _Long){
-		Object rlt = _TnodepropertyMapper.deleteByPrimaryKey(_Long);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TnodepropertyMapper.deleteByPrimaryKey(_Long);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public List<Tnodeproperty> selectByExample(TnodepropertyExample _TnodepropertyExample){

@@ -1,4 +1,4 @@
-<div>
-	<div>$field:</div>
-	<input class="easyui-numberbox" value="1234567.89" name="$field" data-options="precision:2,groupSeparator:' ',decimalSeparator:','"></input>
-</div>
+<tr>
+	<td>$field:</td>
+	<td><input class="easyui-numberbox" value="123456789" name="$field" data-options="precision:0,groupSeparator:' ',decimalSeparator:','"></input></td>
+</tr>

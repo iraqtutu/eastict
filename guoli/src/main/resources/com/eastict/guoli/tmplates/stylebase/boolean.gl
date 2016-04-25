@@ -1,4 +1,4 @@
-<div>
-	<div>$field:</div>
-	<input class="" type="checkbox" name="$field">
-</div>
+<tr>
+	<td>$field:</td>
+	<td><input class="" type="checkbox" name="$field"></td>
+</tr>

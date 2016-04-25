@@ -238,7 +238,8 @@ public class ServiceGenerator {
 		sbMethdNew.append("){\n");
 		// 具体实现代码
 		if (rtType.startsWith("CusResult")) {
-			sbMethdNew.append("		Object rlt = ");
+			sbMethdNew.append("		try{\n");
+			sbMethdNew.append("			Object rlt = ");
 		} else {
 			sbMethdNew.append("		return ");
 		}
@@ -249,7 +250,11 @@ public class ServiceGenerator {
 		sbMethdNew.append(sbArgs.toString());
 		sbMethdNew.append(");\n");
 		if (rtType.startsWith("CusResult")) {
-			sbMethdNew.append("		return CusResult.ok(rlt);\n");
+			sbMethdNew.append("			return CusResult.ok(rlt);\n");
+			sbMethdNew.append("		}\n");
+			sbMethdNew.append("		catch(Exception ex){\n");
+			sbMethdNew.append("			return new CusResult(500,ex.getMessage(),null);\n");
+			sbMethdNew.append("		}\n");
 		}
 		sbMethdNew.append("	}\n");
 		return sbMethdNew.toString();

@@ -1,0 +1,4 @@
+<div>
+	<div>$field:</div>
+	<input class="easyui-textbox" name="$field" data-options="prompt:'请输入...',required:true,validType:'length[3,10]'">
+</div>

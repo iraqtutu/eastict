@@ -3,10 +3,11 @@ package com.eastict.guoli;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -45,8 +46,13 @@ public class JspGenerator {
 				}
 			}
 			if (!ignor) {
+				String pojoName = cls.getSimpleName();
+				String jspContent = getPojoJsp(cls);
+				String jspFileCont = mapPattern.get("jsp");
+				jspFileCont = jspFileCont.replaceAll("\\$pojo", pojoName);
+				jspFileCont = jspFileCont.replaceAll("\\$fields", jspContent);
 				//生成JSP
-				WriteStringToFile(savePath,"jsp",cls.getSimpleName() + "add.jsp",getPojoJsp(cls));
+				WriteStringToFile(savePath,"jsp",cls.getSimpleName() + "add.jsp",jspFileCont);
 			}
 		}
 	}
@@ -94,7 +100,7 @@ public class JspGenerator {
 		mapPattern.clear();
 		String path = "tmplates/" + styleName + "/";
 		jspTemplate = path + "jsp.gl";
-		String[] types = new String[] { "string", "number", "boolean", "date", "time", "file" };
+		String[] types = new String[] { "string", "number", "boolean", "date", "time", "file","jsp" };
 		String fileName = "";
 		String exp = "";
 		for (String typ : types) {
@@ -141,12 +147,14 @@ public class JspGenerator {
 			if (!txt.exists()) {
 				txt.createNewFile();
 			}
-			FileWriter writer = new FileWriter(txt);
-			BufferedWriter bwriter = new BufferedWriter(writer);
-			bwriter.write(content);
+			//FileWriter writer = new FileWriter(txt);
+			FileOutputStream os = new FileOutputStream(txt);
+			OutputStreamWriter osw = new OutputStreamWriter(os,Charset.defaultCharset());
+			//BufferedWriter bwriter = new BufferedWriter(os,
+			osw.write(content);
 			//writer.close();
-			bwriter.flush();
-			bwriter.close();
+			osw.flush();
+			osw.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

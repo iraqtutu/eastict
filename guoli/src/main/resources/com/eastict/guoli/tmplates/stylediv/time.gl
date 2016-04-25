@@ -1,0 +1,4 @@
+<div>
+	<div>$field:</div>
+	<input class="easyui-datetimebox" name="$field">
+</div>

@@ -1,4 +1,4 @@
-<div>
-	<div>$field:</div>
-	<input class="easyui-datebox" data-options="sharedCalendar:'#cc'">
-</div>
+<tr>
+	<td>$field:</td>
+	<td><input class="easyui-datebox" data-options="sharedCalendar:'#cc'"></td>
+</tr>

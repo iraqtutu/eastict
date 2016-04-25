@@ -19,13 +19,23 @@ public class TuserServiceImpl  implements TuserService{
 	private TuserMapper _TuserMapper;
 	@Override
 	public CusResult insert(Tuser _Tuser){
-		Object rlt = _TuserMapper.insert(_Tuser);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TuserMapper.insert(_Tuser);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult insertSelective(Tuser _Tuser){
-		Object rlt = _TuserMapper.insertSelective(_Tuser);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TuserMapper.insertSelective(_Tuser);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public Tuser selectByPrimaryKey(String _String){
@@ -33,18 +43,33 @@ public class TuserServiceImpl  implements TuserService{
 	}
 	@Override
 	public CusResult updateByPrimaryKey(Tuser _Tuser){
-		Object rlt = _TuserMapper.updateByPrimaryKey(_Tuser);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TuserMapper.updateByPrimaryKey(_Tuser);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult updateByPrimaryKeySelective(Tuser _Tuser){
-		Object rlt = _TuserMapper.updateByPrimaryKeySelective(_Tuser);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TuserMapper.updateByPrimaryKeySelective(_Tuser);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult deleteByPrimaryKey(String _String){
-		Object rlt = _TuserMapper.deleteByPrimaryKey(_String);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TuserMapper.deleteByPrimaryKey(_String);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public List<Tuser> selectByExample(TuserExample _TuserExample){

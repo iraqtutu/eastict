@@ -19,13 +19,23 @@ public class TfunctionServiceImpl  implements TfunctionService{
 	private TfunctionMapper _TfunctionMapper;
 	@Override
 	public CusResult insert(Tfunction _Tfunction){
-		Object rlt = _TfunctionMapper.insert(_Tfunction);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TfunctionMapper.insert(_Tfunction);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult insertSelective(Tfunction _Tfunction){
-		Object rlt = _TfunctionMapper.insertSelective(_Tfunction);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TfunctionMapper.insertSelective(_Tfunction);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public Tfunction selectByPrimaryKey(Long _Long){
@@ -33,18 +43,33 @@ public class TfunctionServiceImpl  implements TfunctionService{
 	}
 	@Override
 	public CusResult updateByPrimaryKey(Tfunction _Tfunction){
-		Object rlt = _TfunctionMapper.updateByPrimaryKey(_Tfunction);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TfunctionMapper.updateByPrimaryKey(_Tfunction);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult updateByPrimaryKeySelective(Tfunction _Tfunction){
-		Object rlt = _TfunctionMapper.updateByPrimaryKeySelective(_Tfunction);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TfunctionMapper.updateByPrimaryKeySelective(_Tfunction);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult deleteByPrimaryKey(Long _Long){
-		Object rlt = _TfunctionMapper.deleteByPrimaryKey(_Long);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TfunctionMapper.deleteByPrimaryKey(_Long);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public List<Tfunction> selectByExample(TfunctionExample _TfunctionExample){

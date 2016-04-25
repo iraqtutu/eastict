@@ -19,13 +19,23 @@ public class TviewnodeServiceImpl  implements TviewnodeService{
 	private TviewnodeMapper _TviewnodeMapper;
 	@Override
 	public CusResult insert(Tviewnode _Tviewnode){
-		Object rlt = _TviewnodeMapper.insert(_Tviewnode);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewnodeMapper.insert(_Tviewnode);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult insertSelective(Tviewnode _Tviewnode){
-		Object rlt = _TviewnodeMapper.insertSelective(_Tviewnode);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewnodeMapper.insertSelective(_Tviewnode);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public Tviewnode selectByPrimaryKey(TviewnodeKey _TviewnodeKey){
@@ -33,18 +43,33 @@ public class TviewnodeServiceImpl  implements TviewnodeService{
 	}
 	@Override
 	public CusResult updateByPrimaryKey(Tviewnode _Tviewnode){
-		Object rlt = _TviewnodeMapper.updateByPrimaryKey(_Tviewnode);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewnodeMapper.updateByPrimaryKey(_Tviewnode);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult updateByPrimaryKeySelective(Tviewnode _Tviewnode){
-		Object rlt = _TviewnodeMapper.updateByPrimaryKeySelective(_Tviewnode);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewnodeMapper.updateByPrimaryKeySelective(_Tviewnode);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public CusResult deleteByPrimaryKey(TviewnodeKey _TviewnodeKey){
-		Object rlt = _TviewnodeMapper.deleteByPrimaryKey(_TviewnodeKey);
-		return CusResult.ok(rlt);
+		try{
+			Object rlt = _TviewnodeMapper.deleteByPrimaryKey(_TviewnodeKey);
+			return CusResult.ok(rlt);
+		}
+		catch(Exception ex){
+			return new CusResult(500,ex.getMessage(),null);
+		}
 	}
 	@Override
 	public List<Tviewnode> selectByExample(TviewnodeExample _TviewnodeExample){
