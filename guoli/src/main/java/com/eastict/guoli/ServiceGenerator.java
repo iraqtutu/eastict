@@ -14,15 +14,27 @@ public class ServiceGenerator {
 			"updateByPrimaryKey", "updateByPrimaryKeySelective", "deleteByPrimaryKey" };
 
 	public static void main(String[] args) throws Exception {
+		//jsp模板样式(模板组)
+		String jspStyle = "stylebase";
+		String savePath = "./genSource";
+		//被扫描的命名空间
+		String pojoPackage = "eastict.pojo.pam";
+		String mapperPackage = "eastict.mapper.pam";
+		//生成文件的命名空间
+		String targetServicePackage =  "eastict.service.pam";
+		String targetControllerPackage =  "eastict.controller.pam";
 		ServiceGenerator gen = new ServiceGenerator();
 		System.out.println("使用方法：");
 		System.out.println("1,把POJO和Mapper的包复制到guoli的源码目录下");
 		System.out.println("2,修改guli的main函数，指定扫描的命名空间和输出的目录");
 		//扫描eastict.mapper.pam包下的所有Mapper,生成Service到./genSource目录下面，包名为eastict.service
-		gen.genServices( "eastict.mapper.pam", "eastict.service.pam","./genSource");
+		gen.genServices(mapperPackage,targetServicePackage,savePath);
 		//扫描eastict.pojo.pam包下的所有pojo,生成jsp到./genSource目录下面，目录名为:jsp
 		JspGenerator jspgen = new JspGenerator();
-		jspgen.genJsps("stylebase", "eastict.pojo.pam","./genSource");
+		jspgen.genJsps(jspStyle, pojoPackage,"./genSource");
+		//生成Controller
+		ControllerGenerator conGen = new ControllerGenerator();
+		conGen.genControllers(pojoPackage, mapperPackage, targetServicePackage, targetControllerPackage, savePath);
 	}
 
 	// 扫描指定命名空间下以Mapper结尾的接口
@@ -50,8 +62,8 @@ public class ServiceGenerator {
 		// TODO:插入package信息
 		// 插入引用信息
 		List<String> imports = new ArrayList<String>();
-		imports.add("import com.eastict.pojo.CusResult;");
-		imports.add("import com.eastict.pojo.EUDataGridResult;");
+		imports.add("com.eastict.pojo.CusResult");
+		imports.add("com.eastict.pojo.EUDataGridResult");
 		List<String> methods = new ArrayList<String>();
 		// imports.contains(o)
 		for (Method mtd : mthds) {
@@ -99,6 +111,13 @@ public class ServiceGenerator {
 				sbImpl.append(";\n");
 			}
 		}
+		//服务实现多几个import
+		sbImpl.append("import org.springframework.beans.factory.annotation.Autowired;\n");
+		sbImpl.append("import org.springframework.stereotype.Service;\n");
+		sbImpl.append("import com.alibaba.druid.sql.visitor.functions.Insert;\n");
+		sbImpl.append("import com.github.pagehelper.PageHelper;\n");
+		sbImpl.append("import com.github.pagehelper.PageInfo;\n");
+		sbImpl.append("import com.eastict.common.utils.IDUtils;\n");
 		// 加入对Mapper的依赖@Service
 		sbImpl.append("@Service\n");
 		sbImpl.append("public class ");
@@ -106,7 +125,7 @@ public class ServiceGenerator {
 		sbImpl.append("Impl  implements ");
 		sbImpl.append(baseType + "Service{\n");
 		sbImpl.append("	@Autowired\n");
-		sbImpl.append("	private " + mapperType);
+		sbImpl.append("	private " + mapperType + " ");
 		sbImpl.append(mapperVarName);
 		sbImpl.append(";\n");
 		// -------------写入方法体
@@ -117,8 +136,9 @@ public class ServiceGenerator {
 		}
 		// -------------强制实现方法
 		sbImpl.append("	@Override\n");
-		sbImpl.append("	EUDataGridResult get" + baseType + "List(int page, int rows){\n");
+		sbImpl.append("	public EUDataGridResult get" + baseType + "List(int page, int rows){\n");
 		sbImpl.append("		//请根据需要实现分页查询，通过Example查询实现\n");
+		sbImpl.append("		return null;\n");
 		sbImpl.append("	}\n");
 		// -------------
 		sbImpl.append("}\n");
@@ -137,7 +157,7 @@ public class ServiceGenerator {
 		}
 		if (mtd.getName().startsWith("select")) {
 			// 判断返回值类型
-			if (mtd.getReturnType().isArray()) {
+			if (mtd.getReturnType().getName().equals("java.util.List")) {
 				rtType = "List<" + baseType + "> ";
 			} else {
 				rtType = baseType + " ";
@@ -181,7 +201,7 @@ public class ServiceGenerator {
 		}
 		if (mtd.getName().startsWith("select")) {
 			// 判断返回值类型
-			if (mtd.getReturnType().isArray()) {
+			if (mtd.getReturnType().getName().equals("java.util.List")) {
 				rtType = "List<" + baseType + "> ";
 			} else {
 				rtType = baseType + " ";
@@ -189,7 +209,7 @@ public class ServiceGenerator {
 		} else {
 			rtType = "CusResult ";
 		}
-		sbMethdNew.append("	");
+		sbMethdNew.append("	public ");
 		sbMethdNew.append(rtType);
 		sbMethdNew.append(mtd.getName());
 		sbMethdNew.append("(");
