@@ -85,6 +85,7 @@ public class JspGenerator {
 				pattern = mapPattern.get("date");
 				break;
 			default:
+				pattern = mapPattern.get("string");
 				System.out.println(clsName);
 			}
 			// 字符串替换
