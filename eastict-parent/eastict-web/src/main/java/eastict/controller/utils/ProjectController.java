@@ -34,7 +34,5 @@ public class ProjectController {
             System.out.println(entry.getKey() +"\n" + entry.getValue() + "\r\n\r\n");
         }
         return sb.toString();
-        		
-		//return requestToMethodItemList;//new ModelAndView("index").addObject("MethodList", requestToMethodItemList);
 	}
 }
