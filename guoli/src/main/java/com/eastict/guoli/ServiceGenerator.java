@@ -253,6 +253,7 @@ public class ServiceGenerator {
 			sbMethdNew.append("			return CusResult.ok(rlt);\n");
 			sbMethdNew.append("		}\n");
 			sbMethdNew.append("		catch(Exception ex){\n");
+			sbMethdNew.append("			ex.printStackTrace();\n");
 			sbMethdNew.append("			return new CusResult(500,ex.getMessage(),null);\n");
 			sbMethdNew.append("		}\n");
 		}

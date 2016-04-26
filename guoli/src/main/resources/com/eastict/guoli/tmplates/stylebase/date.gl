@@ -1,4 +1,4 @@
 <tr>
 	<td>$field:</td>
-	<td><input class="easyui-datebox" data-options="sharedCalendar:'#cc'"></td>
+	<td><input class="easyui-datebox"  name="$field"></td>
 </tr>

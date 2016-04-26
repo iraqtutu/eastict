@@ -23,6 +23,7 @@ public class TusernodeServiceImpl  implements TusernodeService{
 			return CusResult.ok(rlt);
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			return new CusResult(500,ex.getMessage(),null);
 		}
 	}
@@ -33,6 +34,7 @@ public class TusernodeServiceImpl  implements TusernodeService{
 			return CusResult.ok(rlt);
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			return new CusResult(500,ex.getMessage(),null);
 		}
 	}

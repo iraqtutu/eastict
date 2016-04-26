@@ -4,18 +4,18 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Basic Form - jQuery EasyUI Demo</title>
+	<title>Tuser 录入</title>
 	<link rel="stylesheet" type="text/css" href="../resources/easyUI/themes/default/easyui.css">
 	<link rel="stylesheet" type="text/css" href="../resources/easyUI/themes/icon.css">
 	<link rel="stylesheet" type="text/css" href="../resources/demo.css">
 	<script type="text/javascript" src="../resources/easyUI/jquery.min.js"></script>
 	<script type="text/javascript" src="../resources/easyUI/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../resources/easyUI/locale/easyui-lang-zh_CN.js"></script>
 </head>
 <body>
 	<h2>Tuser 录入</h2>
-	<p>Tuser 录入窗口.....</p>
 	<div style="margin:20px 0;"></div>
-	<div class="easyui-panel" title="New Topic" style="width:400px">
+	<div class="easyui-panel" title="新建Tuser" style="width:400px">
 		<div style="padding:10px 60px 20px 60px">
 	    <form id="formid" method="post">
 	    	<table cellpadding="5">
@@ -37,7 +37,7 @@
 </tr>
 <tr>
 	<td>createtime:</td>
-	<td><input class="easyui-datebox" data-options="sharedCalendar:'#cc'"></td>
+	<td><input class="easyui-datebox"  name="createtime"></td>
 </tr>
 <tr>
 	<td>enabled:</td>

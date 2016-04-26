@@ -24,6 +24,7 @@ public class TappServiceImpl  implements TappService{
 			return CusResult.ok(rlt);
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			return new CusResult(500,ex.getMessage(),null);
 		}
 	}
@@ -34,6 +35,7 @@ public class TappServiceImpl  implements TappService{
 			return CusResult.ok(rlt);
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			return new CusResult(500,ex.getMessage(),null);
 		}
 	}
@@ -48,6 +50,7 @@ public class TappServiceImpl  implements TappService{
 			return CusResult.ok(rlt);
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			return new CusResult(500,ex.getMessage(),null);
 		}
 	}
@@ -58,6 +61,7 @@ public class TappServiceImpl  implements TappService{
 			return CusResult.ok(rlt);
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			return new CusResult(500,ex.getMessage(),null);
 		}
 	}
@@ -68,6 +72,7 @@ public class TappServiceImpl  implements TappService{
 			return CusResult.ok(rlt);
 		}
 		catch(Exception ex){
+			ex.printStackTrace();
 			return new CusResult(500,ex.getMessage(),null);
 		}
 	}

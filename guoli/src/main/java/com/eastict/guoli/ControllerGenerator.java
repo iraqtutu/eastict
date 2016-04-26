@@ -47,6 +47,7 @@ public class ControllerGenerator {
 		imports.add("org.springframework.web.bind.annotation.ResponseBody");
 		imports.add("com.eastict.pojo.CusResult");
 		imports.add("com.eastict.pojo.EUDataGridResult");
+		imports.add("com.eastict.common.utils.IDUtils");
 		List<String> methods = new ArrayList<String>();
 		
 		// imports.contains(o)
@@ -156,6 +157,7 @@ public class ControllerGenerator {
 			sb.append(parName);
 			sb.append("){\n");
 			//写函数体部分
+			sb.append("		//注意：客户端传递来的数据未必全，请根据实际情况进行补充!例如创建时间，ID等，ID请使用IDUtils生成。\n");
 			sb.append("		");
 			sb.append("CusResult ");
 			sb.append(" _rlt" + " = ");
