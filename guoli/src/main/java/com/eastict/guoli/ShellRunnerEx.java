@@ -209,6 +209,7 @@ public class ShellRunnerEx {
 					ctxid = first.toLowerCase() + end;
 					String dataSourceId = ctxid + "DataSource";
 					String sessionFactoryId = ctxid + "SessionFactory";
+					String mapperScannerId = ctxid + "MapperScannerConfig";
 					JDBCConnectionConfiguration jdbcConnectionConfiguration = ctx.getJdbcConnectionConfiguration();
 					String connectionURL = jdbcConnectionConfiguration.getConnectionURL();
 					String driverClass = jdbcConnectionConfiguration.getDriverClass();
@@ -220,7 +221,7 @@ public class ShellRunnerEx {
 					String sessionFactoryStr = String.format(mapPattern.get("sessionfactory"), sessionFactoryId,
 							dataSourceId);// SessionFactory字符串
 					// 生成MapperScanner配置
-					String mpscannerStr = String.format(mapPattern.get("mapperscanner"), mapperPackage,
+					String mpscannerStr = String.format(mapPattern.get("mapperscanner"), mapperScannerId,mapperPackage,
 							sessionFactoryId);// SessionFactory字符串
 					sbSpringDaoXml.append(datasourceStr);
 					sbSpringDaoXml.append(sessionFactoryStr);
