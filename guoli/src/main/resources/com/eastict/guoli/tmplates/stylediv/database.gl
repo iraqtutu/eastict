@@ -1,0 +1,9 @@
+	<bean id="%s" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="url" value="%s" />
+		<property name="username" value="%s" />
+		<property name="password" value="%s" />
+		<property name="driverClassName" value="%s" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
