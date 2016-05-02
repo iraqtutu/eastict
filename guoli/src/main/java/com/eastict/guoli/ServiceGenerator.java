@@ -13,7 +13,7 @@ public class ServiceGenerator {
 	static String[] matchMethodNames = new String[] { "insert", "insertSelective", "selectByPrimaryKey",
 			"updateByPrimaryKey", "updateByPrimaryKeySelective", "deleteByPrimaryKey" };
 
-	public static void main(String[] args) throws Exception {
+	public static void main2(String[] args) throws Exception {
 		//jsp模板样式(模板组)
 		String jspStyle = "stylebase";
 		String savePath = "./genSource";
