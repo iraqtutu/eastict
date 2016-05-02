@@ -151,6 +151,7 @@ public class ShellRunnerEx {
 						: null;
 				myBatisGenerator.generate(progressCallback, contexts, fullyqualifiedTables);
 				System.out.println("POJO,Mapper已经生成!请刷新项目并重新执行程序以生成Service,Controller,JSP的内容");
+				System.out.println("现在，请刷新guoli,以使生成的POJO被探测到!!");
 			} else {
 				System.out.println("果粒代码生成器-----by 北京东方信通科技有限公司 陈昌建");
 				System.out.println("检测到POJO,Mapper,开始成Service,Controller,JSP的内容");
