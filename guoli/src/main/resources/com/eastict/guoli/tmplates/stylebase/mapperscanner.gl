@@ -1,4 +1,4 @@
 	<bean id="%s" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="%s"></property>
-		<property name="sqlSessionFactoryBeanName" ref="%s"></property>
+		<property name="sqlSessionFactoryBeanName" value="%s"></property>
 	</bean>
