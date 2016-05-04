@@ -1,4 +1,5 @@
 	<bean id="%s" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+		<property name="mapperLocations" value="classpath*:%s/*Mapper.xml"></property>
 		<property name="dataSource" ref="%s"></property>
 	</bean>
