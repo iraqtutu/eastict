@@ -60,6 +60,21 @@ public class JspGenerator {
 	String getPojoJsp(Class<?> clz) {
 		StringBuilder sb = new StringBuilder();
 		Field[] flds = clz.getDeclaredFields();
+		HashMap<String,Field> hmFields = new HashMap<String,Field>();
+		for (Field fld : flds) {
+			hmFields.put(fld.getName(), fld);
+		}
+		
+		Class<?> superclass = clz.getSuperclass();
+		while(superclass != Object.class && superclass != null){
+			//取Fields
+			flds = superclass.getDeclaredFields();
+			for (Field fd : flds) {
+				hmFields.put(fd.getName(), fd);
+			}
+			superclass = superclass.getSuperclass();
+		}
+		flds = hmFields.values().toArray(flds);
 		for (Field fld : flds) {
 			String fldName = fld.getName();
 			Class<?> clsFld = fld.getType();

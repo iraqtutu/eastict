@@ -219,7 +219,7 @@ public class ShellRunnerEx {
 					String datasourceStr = String.format(mapPattern.get("datasource"), dataSourceId, connectionURL,
 							userId, password, driverClass);// 数据源字符串
 					// 生成SqlSessionFactory
-					String sessionFactoryStr = String.format(mapPattern.get("sessionfactory"), sessionFactoryId,
+					String sessionFactoryStr = String.format(mapPattern.get("sessionfactory"), sessionFactoryId,targetMapperPackage.replace('.', '/'),
 							dataSourceId);// SessionFactory字符串
 					// 生成MapperScanner配置
 					String mpscannerStr = String.format(mapPattern.get("mapperscanner"), mapperScannerId,mapperPackage,
