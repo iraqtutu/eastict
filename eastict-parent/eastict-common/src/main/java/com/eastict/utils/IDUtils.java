@@ -1,4 +1,4 @@
-package com.eastict.common.utils;
+package com.eastict.utils;
 
 import java.util.Random;
 

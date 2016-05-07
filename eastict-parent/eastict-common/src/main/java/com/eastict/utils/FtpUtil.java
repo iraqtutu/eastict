@@ -1,4 +1,4 @@
-package com.eastict.common.utils;
+package com.eastict.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
