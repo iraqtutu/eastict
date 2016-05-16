@@ -162,7 +162,7 @@ public class ShellRunnerEx {
 				HashMap<String, String> mapPattern = new HashMap<String, String>();
 				mapPattern.clear();
 				String jspStyle = "stylebase";
-				String path = "tmplates/" + jspStyle + "/";
+				String path = "tmplates/";
 				String[] types = new String[] { "datasource", "sessionfactory", "mapperscanner", "daoxml" };
 				String fileName = "";
 				String exp = "";
